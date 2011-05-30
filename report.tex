@@ -32,18 +32,18 @@
     Our group has created a news feed/RSS reader for iOS devices. The feed
     reader allows users to easily add feeds using a search function (so no
     typing in long feed URLs), and read news items with an embedded Safari
-    browser.
+    browser. Also, all feeds can be viewed at once, interleaving items with the
+    most recent at the top.
     
-    Also, all feeds can be viewed at once, interleaving items with the
-    most recent at the top. Originally, the application was to be very similar
-    to the Pulse newsreader application, but the design diverged as the project
-    continued.
+    Originally, the application was to be very similar to the Pulse newsreader
+    application (which is described in detail further in this report) but the
+    design diverged as the project continued.
 
     Though this project started life as a networked multi-player game, it was
     decided relatively early on in the process that a less complex, more
     standard application was preferable. The group felt that it would be easier
     to showcase our ability to create a good mobile application with a simpler
-    project brief – hence the feed reader proposal.
+    project brief---hence the feed reader proposal.
 
     The work was split over the four group members as follows:
 
@@ -82,18 +82,18 @@
 
     \section{Pulse}
 
-    Pulse uses a custom web service to provide extra functionality to users,
-    such as a choice of feeds to add, automatic synchronisation, and rendered
-    text display. Also, “featured” feeds can be displayed which, presumably,
-    publishers would be willing to pay for. The custom web service model allows
-    more complex logic to be included in the application without bloating the
-    mobile client itself.
+    \emph{Pulse} uses a custom web service to provide extra functionality to
+    users, such as a choice of feeds to add, automatic synchronisation, and
+    rendered text display. Also, ``featured'' feeds can be displayed which,
+    presumably, publishers would be willing to pay for. The custom web service
+    model allows more complex logic to be included in the application without
+    bloating the mobile client itself.
 
     The main interface of the Pulse application comprises a number of
     horizontal feeds displayed in a vertical list, each with its own scrolling
     capability. Over-scrolling downwards synchronises all feeds using the
-    familiar iPhone “arrow” animation which users have come to expect. When
-    selecting an item, the “summary” of the item is displayed in a rendered
+    familiar iPhone ``arrow'' animation which users have come to expect. When
+    selecting an item, the ``summary'' of the item is displayed in a rendered
     text display screen. For the full detail, an embedded browser is used to
     show the web page linked to by the item.
 
@@ -101,13 +101,13 @@
 
     To implement our application, the group had to make a decision between
     using a similar architecture to Pulse – using a custom web service
-    “middle-man” - or adding the logic to the app itself, negating the need for
-    a custom service.
+    ``middle-man''---or adding the logic to the app itself, negating the need
+    for a custom service.
 
     In the end, a compromise was reached between the two methods. Through
     research conducted by Rob Miles and myself, it was discovered that Google
-    offers an RSS API, which is capable of parsing an RSS or ATOM feed, and
-    emitting a JSON format response which can be easily parsed by a mobile
+    offers a \emph{feeds API}, which is capable of parsing an RSS or ATOM feed,
+    and emitting a JSON format response which can be easily parsed by a mobile
     application. Also, the feeds API allows searching by keywords, and returns
     the results of that search, again in JSON format. This meant that the
     functionality that could be gained from implementing a custom web service
@@ -117,16 +117,17 @@
 
     The mobile application, it was decided, would make heavy use of the Google
     feeds API. Users would be able to search for feeds using keywords like
-    “middle east”, “USA” or “politics”, and then be able to choose from a list
-    of results to add to their personal feeds list. This list would then be
-    checked periodically using the same API, by parsing the JSON data returned.
-    JSON is smaller, faster and uses less memory to parse (so is more suitable
-    for a mobile platform), and the feeds API guarantees that the data will be
-    valid – so data validation is less of a concern.
+    ``middle east'', ``USA'' or ``politics'', and then be able to choose from
+    a list of results to add to their personal feeds list. This list would then
+    be checked periodically using the same API, by parsing the JSON data
+    returned. JSON is smaller, faster and uses less memory to parse than XML,
+    and so is more suitable for a mobile platform. Also, the feeds API
+    guarantees that the data will be valid---so data validation is less of
+    a concern.
 
     Also, the application would come with some built-in lists of feeds,
     populated using the same technique of searching for keywords. These could
-    be popular categories such as “news”, “UK” and “politics”.
+    be popular categories such as ``news'', ``UK'' and ``politics''.
 
     \section{The Group}
 
@@ -151,7 +152,7 @@
     that this functionality should be moved into the application itself once
     the Google feeds API was discovered. I also discovered a number of iOS
     libraries which could be used to replicate this functionality on the mobile
-    device itself – though in the end this was not required.
+    device itself---though in the end this was not required.
 
     Based upon this research, I contributed to the design of the application's
     architecture by applying the knowledge gained in this area. Also,
