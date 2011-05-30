@@ -1,0 +1,175 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{longtable}
+%\usepackage{fullpage}
+\usepackage{pstricks}
+\usepackage{tikz}
+\usepackage[absolute]{textpos}
+\usepackage{import}
+\usepackage{subfigure}
+\usepackage{setspace}
+
+\title{G54MDP Individual Report}
+\author{Robert J. Golding (rjg08u)} \date{\today}
+
+% Dutch style paragraph formatting
+\setlength{\parskip}{1.3ex plus 0.2ex minus 0.2ex}
+\setlength{\parindent}{0pt}
+
+%\doublespacing
+\onehalfspacing
+
+\begin{document}
+    \maketitle
+
+    \section{Introduction}
+
+    Our group has created a news feed/RSS reader for iOS devices. The feed
+    reader allows users to easily add feeds using a search function (so no
+    typing in long feed URLs), and read news items with an embedded Safari
+    browser.
+    
+    Also, all feeds can be viewed at once, interleaving items with the
+    most recent at the top. Originally, the application was to be very similar
+    to the Pulse newsreader application, but the design diverged as the project
+    continued.
+
+    Though this project started life as a networked multi-player game, it was
+    decided relatively early on in the process that a less complex, more
+    standard application was preferable. The group felt that it would be easier
+    to showcase our ability to create a good mobile application with a simpler
+    project brief – hence the feed reader proposal.
+
+    The work was split over the four group members as follows:
+
+    \paragraph{Rob Golding}
+
+    \begin{itemize}
+        \item Web service feasibility testing
+        \item Evaluation of existing services
+    \end{itemize}
+
+    \paragraph{Michal Konturek}
+
+    \begin{itemize}
+        \item Final application development
+        \item Implementation of proposed interface design
+    \end{itemize}
+
+    \paragraph{Rob Miles}
+
+    \begin{itemize}
+        \item Research into feed parsing technologies
+        \item Application architecture proposal
+    \end{itemize}
+
+    \paragraph{Marcus Whybrow}
+
+    \begin{itemize}
+        \item Interface design
+        \item Initial iOS prototype development
+    \end{itemize}
+
+    The initial research into both existing applications and suitable
+    technologies was conducted by both myself and Rob Miles. The Pulse
+    newsreader application was considered to be the most similar in design to
+    the result the group wished to achieve.
+
+    \section{Pulse}
+
+    Pulse uses a custom web service to provide extra functionality to users,
+    such as a choice of feeds to add, automatic synchronisation, and rendered
+    text display. Also, “featured” feeds can be displayed which, presumably,
+    publishers would be willing to pay for. The custom web service model allows
+    more complex logic to be included in the application without bloating the
+    mobile client itself.
+
+    The main interface of the Pulse application comprises a number of
+    horizontal feeds displayed in a vertical list, each with its own scrolling
+    capability. Over-scrolling downwards synchronises all feeds using the
+    familiar iPhone “arrow” animation which users have come to expect. When
+    selecting an item, the “summary” of the item is displayed in a rendered
+    text display screen. For the full detail, an embedded browser is used to
+    show the web page linked to by the item.
+
+    \section{Technologies}
+
+    To implement our application, the group had to make a decision between
+    using a similar architecture to Pulse – using a custom web service
+    “middle-man” - or adding the logic to the app itself, negating the need for
+    a custom service.
+
+    In the end, a compromise was reached between the two methods. Through
+    research conducted by Rob Miles and myself, it was discovered that Google
+    offers an RSS API, which is capable of parsing an RSS or ATOM feed, and
+    emitting a JSON format response which can be easily parsed by a mobile
+    application. Also, the feeds API allows searching by keywords, and returns
+    the results of that search, again in JSON format. This meant that the
+    functionality that could be gained from implementing a custom web service
+    was already available in the form of a free, publicly available API.
+
+    \section{Architecture}
+
+    The mobile application, it was decided, would make heavy use of the Google
+    feeds API. Users would be able to search for feeds using keywords like
+    “middle east”, “USA” or “politics”, and then be able to choose from a list
+    of results to add to their personal feeds list. This list would then be
+    checked periodically using the same API, by parsing the JSON data returned.
+    JSON is smaller, faster and uses less memory to parse (so is more suitable
+    for a mobile platform), and the feeds API guarantees that the data will be
+    valid – so data validation is less of a concern.
+
+    Also, the application would come with some built-in lists of feeds,
+    populated using the same technique of searching for keywords. These could
+    be popular categories such as “news”, “UK” and “politics”.
+
+    \section{The Group}
+
+    Regular meetings were held every week for group decision making and,
+    mainly, for coding the application itself. The group were mostly in the
+    same place making this relatively easy, though sometimes we were
+    geographically separated. In this case, we made use of Skype whilst meeting
+    were taking place, and instant messaging otherwise.
+
+    Finally, the project was managed using the Basecamp project management
+    suite, which we used to keep track of deadlines and to keep up-to-date
+    between meetings.
+
+    \section{Personal Contribution}
+
+    In contribution to this project, I have conducted research into the field
+    including the architecture of related applications such as the
+    aforementioned Pulse newsreader. Also, I spent some time creating
+    a proof-of-concept web service which provided basic feed parsing
+    capability. The web service was originally intended to store user
+    preferences such as the list of subscribed feeds, though it was decided
+    that this functionality should be moved into the application itself once
+    the Google feeds API was discovered. I also discovered a number of iOS
+    libraries which could be used to replicate this functionality on the mobile
+    device itself – though in the end this was not required.
+
+    Based upon this research, I contributed to the design of the application's
+    architecture by applying the knowledge gained in this area. Also,
+    I investigated and documented the Google feeds API features which would be
+    required for the project, so that the application could be developed more
+    quickly and easily. Though I am, by no means, an experienced iOS developer,
+    I felt I was able to contribute to the project in a significant way through
+    this type of research and proof-of-concept development.
+
+    \section{Conclusion}
+
+    Though at times apart, the group performed very well and has produced
+    a feasible, usable application. The tasks were distributed evenly between
+    group members, and then progress organised efficiently through Basecamp.
+
+    The final application represents a smooth and usable experience for the end
+    user, and minimises the effort of searching for and adding new feeds. Also,
+    synchronisation is fast due to the underlying JSON format which offers
+    small, fast data encoding.
+
+\end{document}
