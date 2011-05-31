@@ -100,7 +100,7 @@
     \section{Technologies}
 
     To implement our application, the group had to make a decision between
-    using a similar architecture to Pulse – using a custom web service
+    using a similar architecture to Pulse---using a custom web service
     ``middle-man''---or adding the logic to the app itself, negating the need
     for a custom service.
 
@@ -116,26 +116,30 @@
     \section{Architecture}
 
     The mobile application, it was decided, would make heavy use of the Google
-    feeds API. Users would be able to search for feeds using keywords like
-    ``middle east'', ``USA'' or ``politics'', and then be able to choose from
-    a list of results to add to their personal feeds list. This list would then
-    be checked periodically using the same API, by parsing the JSON data
-    returned. JSON is smaller, faster and uses less memory to parse than XML,
-    and so is more suitable for a mobile platform. Also, the feeds API
-    guarantees that the data will be valid---so data validation is less of
-    a concern.
-
-    Also, the application would come with some built-in lists of feeds,
-    populated using the same technique of searching for keywords. These could
-    be popular categories such as ``news'', ``UK'' and ``politics''.
+    feeds API. Users would be able to add feeds from lists of pre-determined
+    categories, populated by querying the Feeds API for the category name. For
+    example, ``middle east'', ``USA'' or ``politics'' might each represent
+    a category of feeds, with the user then able to choose from a list of
+    results to add to their personal feeds list.
+    
+    The feeds would then be checked periodically using the same API, by parsing
+    the JSON data returned. JSON is smaller, faster and uses less memory to
+    parse than XML, and so is more suitable for a mobile platform.  Also, the
+    feeds API guarantees that the data will be valid---so data validation is
+    less of a concern.
 
     \section{The Group}
 
-    Regular meetings were held every week for group decision making and,
-    mainly, for coding the application itself. The group were mostly in the
-    same place making this relatively easy, though sometimes we were
-    geographically separated. In this case, we made use of Skype whilst
-    meetings were taking place, and instant messaging otherwise.
+    Regular meetings were held every week for group decision making during term
+    time, when we produced a basic specification for our application. After
+    this time, we had several coding sessions to allow the app to come into
+    fruition.
+    
+    The group were mostly in the same place making this relatively easy, though
+    sometimes we were geographically separated. In this case, we made use of
+    Skype whilst meetings were taking place to ensure that all group members
+    were involved in the process if making major decisions. At other times, we
+    used instant messaging for more informal communications.
 
     Finally, the project was managed using the Basecamp project management
     suite, which we used to keep track of deadlines and to keep up-to-date
@@ -168,9 +172,19 @@
     a feasible, usable application. The tasks were distributed evenly between
     group members, and then progress organised efficiently through Basecamp.
 
-    The final application represents a smooth and usable experience for the end
-    user, and minimises the effort of searching for and adding new feeds. Also,
-    synchronisation is fast due to the underlying JSON format which offers
-    small, fast data encoding.
+    I feel that the group worked very well together, and was able to create
+    a successful application in the time allotted. Specifically, the group
+    members could draw on the mutual respect and trust which exists between
+    each other. This is something which I consider essential for a successful
+    group task, but can take a significantly long time to achieve and is
+    therefore so often absent.
+
+    For this reason, I feel privileged to have worked with such talented,
+    committed individuals, and would relish the opportunity to do so again.
+
+    In my opinion, the final application represents a smooth and usable
+    experience for the end user, and minimises the effort of searching for and
+    adding new feeds. Also, synchronisation is fast due to the underlying JSON
+    format which offers small, fast data encoding.
 
 \end{document}
